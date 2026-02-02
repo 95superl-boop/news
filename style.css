@@ -1,9 +1,9 @@
 /*
-Theme Name: TechHub News Theme
+Theme Name: TechHub News Pro
 Theme URI: https://techub.news
-Description: 基于 React 的高性能 Web3 资讯主题。支持 7x24 快讯、分享图生成、自适应布局及全后端配置。
+Description: 全球领先的 Web3 资讯分发平台 React 高级主题。集成快讯分享、WP REST API 以及全后端可配置化 LOGO 与二维码。
 Author: TechHub Engineering
-Version: 1.5.0
+Version: 1.6.0
 License: GNU General Public License v2 or later
 Text Domain: techhub
 */
@@ -13,8 +13,12 @@ Text Domain: techhub
   --color-primary-hover: #0041cc;
   --bg-body: #f8fafc;
   --text-main: #1e293b;
+  --text-muted: #64748b;
+  --radius-lg: 1rem;
   --radius-xl: 1.5rem;
   --radius-2xl: 2rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
 }
 
 body {
@@ -25,17 +29,63 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* 移除浏览器默认滚动条 */
+/* Container */
+.th-container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Utilities */
 .scrollbar-hide::-webkit-scrollbar { display: none; }
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 
-/* WordPress 管理条适配 */
+/* WP Admin Bar Fix */
 .admin-bar header { top: 32px; }
 @media screen and (max-width: 782px) {
   .admin-bar header { top: 46px; }
 }
 
-/* WP 内容区域基础样式 */
-.wp-content img { max-width: 100%; height: auto; border-radius: 1rem; margin: 1.5rem 0; }
-.wp-content p { line-height: 1.8; margin-bottom: 1.5rem; }
-.wp-content h2 { font-weight: 900; font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; }
+/* Header Specific Animations */
+header input:focus {
+  width: 320px !important;
+}
+@media (max-width: 1024px) {
+  header input:focus { width: 100% !important; }
+}
+
+/* Content Area Reset */
+.wp-content img { max-width: 100%; height: auto; border-radius: 1rem; margin: 1.5rem 0; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+.wp-content p { line-height: 1.85; margin-bottom: 1.5rem; font-size: 1.1rem; }
+.wp-content h2 { font-weight: 900; font-size: 1.75rem; margin: 2.5rem 0 1.5rem; letter-spacing: -0.025em; }
+.wp-content a { color: var(--color-primary); font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+
+/* Components */
+.th-card {
+  background: white;
+  border-radius: var(--radius-xl);
+  border: 1px solid #f1f5f9;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.th-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.04); border-color: #e2e8f0; }
+
+.th-btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+  font-weight: 900;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 82, 255, 0.2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.th-btn-primary:hover { transform: scale(1.02); background-color: var(--color-primary-hover); box-shadow: 0 6px 20px rgba(0, 82, 255, 0.3); }

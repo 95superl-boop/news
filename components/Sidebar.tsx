@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import ArticleCard from './ArticleCard';
 import NewsTicker from './NewsTicker';
@@ -6,15 +5,10 @@ import FlashShareModal from './FlashShareModal';
 import { MOCK_POSTS, FLASH_NEWS, UI_TRANSLATIONS } from '../constants';
 import { FlashNews, ShareConfig } from '../types';
 
-interface SidebarProps {
-  lang?: 'zh' | 'en';
-}
-
-const Sidebar: React.FC<SidebarProps> = ({ lang = 'zh' }) => {
+const Sidebar: React.FC = () => {
   const [selectedNews, setSelectedNews] = useState<FlashNews | null>(null);
-  const t = UI_TRANSLATIONS[lang];
+  const t = UI_TRANSLATIONS;
 
-  // Fix: Add missing required 'layoutStyle' property to ShareConfig
   const shareConfig: ShareConfig = {
     logoPosition: 'top',
     theme: 'gradient',
