@@ -35,5 +35,19 @@ export interface FlashNews {
   id: number;
   title: string;
   time: string;
+  date: string;
   content: string;
+  tag?: string;
+}
+
+export type ShareLayoutStyle = 'standard' | 'poster' | 'minimal' | 'breaking';
+
+export interface ShareConfig {
+  logoPosition: 'top' | 'bottom';
+  theme: 'light' | 'dark' | 'gradient' | 'gold';
+  layoutStyle: ShareLayoutStyle;
+  showQrCode: boolean;
+  brandName: string;
+  logoUrl?: string; // New: Custom logo URL from backend
+  qrCodeUrl?: string; // New: Custom QR code URL from backend
 }

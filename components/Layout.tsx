@@ -1,104 +1,73 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { UI_TRANSLATIONS, WP_CONFIG } from '../constants';
 
-// Mock translation function for UI demo
-const __ = (text: string, domain: string = 'techhub') => text;
-
-const LanguageSwitcher: React.FC = () => {
-  return (
-    <div className="relative group px-2">
-      <button className="text-xs font-bold text-gray-500 hover:text-blue-600 flex items-center" aria-label={__('切换语言', 'techhub')}>
-        <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-        EN/中文
-      </button>
-      <div className="absolute right-0 top-full mt-2 bg-white shadow-xl border border-gray-100 rounded-lg py-2 hidden group-hover:block z-50 min-w-[100px]">
-        <a href="?lang=zh" className="block px-4 py-1.5 text-xs hover:bg-gray-50">简体中文</a>
-        <a href="?lang=en" className="block px-4 py-1.5 text-xs hover:bg-gray-50">English</a>
-      </div>
-    </div>
-  );
-};
-
-const Header: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  return (
-    <header className="th-header-sticky" role="banner">
-      <div className="th-container">
-        <div className="th-flex-between h-16 lg:h-20">
-          <div className="th-flex-center">
-            <a href="#/" className="th-flex-center space-x-2" aria-label={__('首页', 'techhub')}>
-              <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">T</div>
-              <span className="text-xl font-bold text-slate-900 hidden sm:block">TechHub<span className="text-blue-600">.news</span></span>
-            </a>
-          </div>
-
-          <nav className="hidden lg:flex items-center space-x-6" role="navigation">
-            <a href="#/" className="th-nav-link">{__('首页', 'techhub')}</a>
-            <div className="relative group">
-              <button className="th-nav-link flex items-center" aria-haspopup="true">
-                {__('资讯', 'techhub')} <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
-              </button>
-              <div className="absolute top-full left-0 mt-2 w-48 bg-white border border-gray-100 rounded-lg shadow-xl py-2 hidden group-hover:block transition-all">
-                <a href="#/category/crypto" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50">{__('加密货币', 'techhub')}</a>
-                <a href="#/category/ai" className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50">{__('人工智能', 'techhub')}</a>
-              </div>
-            </div>
-            <a href="#/flash" className="th-nav-link">{__('快讯', 'techhub')}</a>
-          </nav>
-
-          <div className="th-flex-center space-x-2">
-            <LanguageSwitcher />
-            <div className="hidden md:flex items-center bg-gray-100 rounded-full px-4 py-1.5 border border-transparent focus-within:border-blue-400 focus-within:bg-white transition-all">
-              <input type="text" placeholder={__('搜索资讯...', 'techhub')} className="bg-transparent border-none focus:ring-0 text-sm w-32 lg:w-48 text-gray-700" aria-label={__('搜索', 'techhub')} />
-            </div>
-            <button className="hidden sm:block text-sm font-semibold text-slate-700 hover:text-blue-600">{__('登录', 'techhub')}</button>
-            <button className="th-btn th-btn-primary">{__('订阅', 'techhub')}</button>
-            <button className="lg:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-expanded={isMenuOpen} aria-label={__('主菜单', 'techhub')}>
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </header>
-  );
-};
-
-const Footer: React.FC = () => {
-  return (
-    <footer className="bg-slate-900 text-slate-400 py-16" role="contentinfo">
-      <div className="th-container">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-          <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center space-x-2 text-white mb-6">
-               <span className="text-xl font-black">TechHub.news</span>
-            </div>
-            <p className="text-sm leading-relaxed">
-              {__('TechHub.news 是领先的全球科技与 Web3 资讯分发平台。', 'techhub')}
-            </p>
-          </div>
-          <div id="footer-sidebar-1">
-             <h4 className="text-white font-bold mb-6">{__('快速链接', 'techhub')}</h4>
-             {/* WP Tag placeholder for dynamic_sidebar('footer-1') */}
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-};
-
-// Fixed: Defined LayoutProps to include children
 interface LayoutProps {
   children: React.ReactNode;
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
+  const t = UI_TRANSLATIONS;
+
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      <main id="main-content" className="flex-grow focus:outline-none" tabIndex={-1}>
+    <div className="min-h-screen flex flex-col bg-slate-50">
+      <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+        <div className="th-container">
+          <div className="flex items-center justify-between h-16 lg:h-20">
+            <div className="flex items-center">
+              <a href="#/" className="flex items-center space-x-2">
+                {WP_CONFIG.logoUrl ? (
+                  <img src={WP_CONFIG.logoUrl} alt={WP_CONFIG.siteName} className="h-8 w-auto" />
+                ) : (
+                  <>
+                    <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white font-black text-xl shadow-lg">T</div>
+                    <span className="text-xl font-black text-slate-900 hidden sm:block tracking-tight">TechHub<span className="text-blue-600">.news</span></span>
+                  </>
+                )}
+              </a>
+            </div>
+
+            <nav className="hidden lg:flex items-center space-x-8">
+              <a href="#/" className="text-sm font-bold text-slate-600 hover:text-blue-600">{t.home}</a>
+              <a href="#/category/crypto" className="text-sm font-bold text-slate-600 hover:text-blue-600">{t.news}</a>
+              <a href="#/flash" className="text-sm font-bold text-slate-600 hover:text-blue-600">{t.flash}</a>
+            </nav>
+
+            <div className="flex items-center space-x-4">
+              <div className="hidden md:flex items-center bg-gray-50 rounded-full px-4 py-2 border border-transparent focus-within:border-blue-400 focus-within:bg-white transition-all">
+                <input type="text" placeholder={t.search} className="bg-transparent border-none focus:ring-0 text-xs w-24 lg:w-40 font-medium text-slate-600" />
+              </div>
+              <button className="bg-blue-600 text-white text-xs font-black px-6 py-2.5 rounded-full uppercase tracking-widest hover:bg-blue-700 shadow-lg shadow-blue-100">
+                {t.subscribe}
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+      
+      <main id="main-content" className="flex-grow">
         {children}
       </main>
-      <Footer />
+
+      <footer className="bg-slate-950 text-slate-400 py-20">
+        <div className="th-container">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-16">
+            <div className="col-span-1 md:col-span-2">
+              <span className="text-2xl font-black text-white tracking-tighter">TechHub<span className="text-blue-500">.news</span></span>
+              <p className="text-sm leading-loose max-w-sm mt-8 opacity-60">{t.footerDesc}</p>
+            </div>
+            <div>
+               <h4 className="text-white text-xs font-black mb-8 uppercase tracking-widest">{WP_CONFIG.siteName}</h4>
+               <ul className="space-y-4 text-sm font-medium">
+                 <li><a href="#" className="hover:text-blue-500">{t.home}</a></li>
+                 <li><a href="#/flash" className="hover:text-blue-500">{t.flash}</a></li>
+               </ul>
+            </div>
+          </div>
+          <div className="mt-20 pt-8 border-t border-slate-900 text-[10px] font-bold uppercase tracking-widest opacity-40">
+             © {new Promise(() => {}).then(() => new Date().getFullYear()) && '2025'} {WP_CONFIG.siteName.toUpperCase()}. ALL RIGHTS RESERVED.
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };

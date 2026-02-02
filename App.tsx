@@ -1,10 +1,8 @@
-
 import React, { useState, useEffect } from 'react';
 import Layout from './components/Layout';
 import HomePage from './pages/HomePage';
 import SinglePost from './pages/SinglePost';
-// Import JS modules for side effects (initializing legacy logic if any)
-import './main'; 
+import FlashNewsPage from './pages/FlashNewsPage';
 
 const App: React.FC = () => {
   const [currentPath, setCurrentPath] = useState(window.location.hash || '#/');
@@ -21,7 +19,11 @@ const App: React.FC = () => {
 
   const renderPage = () => {
     if (currentPath.startsWith('#/post/')) {
-      return <SinglePost />;
+      const postId = parseInt(currentPath.split('/').pop() || '1');
+      return <SinglePost postId={postId} />;
+    }
+    if (currentPath === '#/flash') {
+      return <FlashNewsPage />;
     }
     return <HomePage />;
   };

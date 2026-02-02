@@ -5,9 +5,10 @@ import { FlashNews } from '../types';
 interface NewsTickerProps {
   items: FlashNews[];
   variant?: 'scroll' | 'static' | 'summary';
+  onShare?: (news: FlashNews) => void;
 }
 
-const NewsTicker: React.FC<NewsTickerProps> = ({ items, variant = 'scroll' }) => {
+const NewsTicker: React.FC<NewsTickerProps> = ({ items, variant = 'scroll', onShare }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -23,10 +24,16 @@ const NewsTicker: React.FC<NewsTickerProps> = ({ items, variant = 'scroll' }) =>
     return (
       <div className="space-y-4">
         {items.map((item) => (
-          <div key={item.id} className="p-4 bg-white border border-gray-100 rounded-xl hover:border-blue-200 transition-colors group">
+          <div key={item.id} className="p-4 bg-white border border-gray-100 rounded-xl hover:border-blue-200 transition-colors group relative">
             <div className="flex items-center justify-between mb-2">
               <span className="text-blue-600 font-bold text-xs">{item.time}</span>
-              <span className="text-xs text-gray-400">快讯</span>
+              <button 
+                onClick={() => onShare?.(item)}
+                className="opacity-0 group-hover:opacity-100 transition-opacity p-1.5 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white"
+                title="分享"
+              >
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+              </button>
             </div>
             <h4 className="font-bold text-slate-800 mb-2 group-hover:text-blue-600 transition-colors">{item.title}</h4>
             <p className="text-xs text-gray-500 line-clamp-3 leading-relaxed">{item.content}</p>
