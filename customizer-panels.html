@@ -1,0 +1,96 @@
+
+<!-- WordPress Theme Customizer Prototype -->
+<div class="wp-customizer">
+  
+  <!-- Section A: Colors -->
+  <section class="customize-section">
+    <h3 class="customize-section-title">A) 主题颜色定制</h3>
+    <div class="customize-control">
+      <label>主要颜色 (Primary Color)</label>
+      <input type="color" data-customize-setting-link="primary_color" value="#0052ff">
+      <p class="description">影响按钮、链接高亮及品牌元素</p>
+    </div>
+    <div class="customize-control">
+      <label>正文字体颜色</label>
+      <input type="color" data-customize-setting-link="font_color" value="#1e293b">
+    </div>
+    <div class="customize-control">
+      <label>链接悬停颜色</label>
+      <input type="color" data-customize-setting-link="link_hover_color" value="#0041cc">
+    </div>
+  </section>
+
+  <!-- Section B: Layout Settings -->
+  <section class="customize-section">
+    <h3 class="customize-section-title">B) 布局设置</h3>
+    <div class="customize-control">
+      <label>首页默认布局</label>
+      <select data-customize-setting-link="home_layout">
+        <option value="grid">网格布局 (Grid)</option>
+        <option value="list">列表布局 (List)</option>
+        <option value="mixed">混合布局 (Mixed)</option>
+      </select>
+    </div>
+    <div class="customize-control">
+      <label>侧边栏位置</label>
+      <div class="radio-group">
+        <label><input type="radio" name="sidebar_pos" value="right" checked> 右侧</label>
+        <label><input type="radio" name="sidebar_pos" value="left"> 左侧</label>
+        <label><input type="radio" name="sidebar_pos" value="none"> 无侧边栏</label>
+      </div>
+    </div>
+    <div class="customize-control">
+      <label>容器最大宽度 (px)</label>
+      <input type="number" data-customize-setting-link="container_width" value="1280">
+    </div>
+  </section>
+
+  <!-- Section C: News Ticker -->
+  <section class="customize-section">
+    <h3 class="customize-section-title">C) 快讯系统配置</h3>
+    <div class="customize-control">
+      <label>快讯动画类型</label>
+      <select data-customize-setting-link="ticker_type">
+        <option value="scroll">无缝滚动 (Scroll)</option>
+        <option value="fade">淡入淡出 (Fade)</option>
+        <option value="static">静态显示 (Static)</option>
+      </select>
+    </div>
+    <div class="customize-control">
+      <label>滚动速度 (秒)</label>
+      <input type="range" min="1" max="10" step="1" value="5">
+    </div>
+    <div class="customize-control">
+      <label>自定义 CSS 类名</label>
+      <input type="text" placeholder="th-custom-ticker">
+    </div>
+  </section>
+
+  <!-- Section D: Post Display -->
+  <section class="customize-section">
+    <h3 class="customize-section-title">D) 文章显示设置</h3>
+    <div class="customize-control">
+      <label>摘要长度 (字数)</label>
+      <input type="number" value="100">
+    </div>
+    <div class="customize-control">
+      <label>显示阅读量</label>
+      <input type="checkbox" checked>
+    </div>
+    <div class="customize-control">
+      <label>显示作者信息</label>
+      <input type="checkbox" checked>
+    </div>
+  </section>
+
+</div>
+
+<style>
+  .wp-customizer { background: #f0f0f1; padding: 20px; font-family: sans-serif; max-width: 300px; border-right: 1px solid #ddd; }
+  .customize-section { margin-bottom: 25px; background: #fff; padding: 15px; border: 1px solid #e5e5e5; box-shadow: 0 1px 1px rgba(0,0,0,.04); }
+  .customize-section-title { font-size: 14px; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-top: 0; }
+  .customize-control { margin-top: 15px; }
+  .customize-control label { display: block; font-weight: 600; font-size: 12px; margin-bottom: 5px; }
+  .customize-control input[type="text"], .customize-control input[type="number"], .customize-control select { width: 100%; padding: 4px; border: 1px solid #8c8f94; border-radius: 3px; }
+  .description { font-size: 11px; color: #666; font-style: italic; margin-top: 3px; }
+</style>

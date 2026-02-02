@@ -1,0 +1,8 @@
+{
+  "name": "TechHub News Frontend",
+  "description": "A high-performance, responsive news portal frontend replicating the visual design of TechHub.news, featuring article grids, flash news tickers, and detailed single-post templates.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

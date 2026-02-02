@@ -1,0 +1,25 @@
+
+<!-- 1. Homepage Top Widget Area -->
+<div id="home-top-widgets" class="th-container mb-8">
+  <div class="widgets-wrapper grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+    {{ dynamic_sidebar('home-top-widgets') }}
+  </div>
+</div>
+
+<!-- 2. Sidebar Widget Area -->
+<aside id="sidebar-widgets" class="space-y-10">
+  {{ dynamic_sidebar('main-sidebar') }}
+</aside>
+
+<!-- 3. Article Bottom Widget Area (e.g. for newsletter or related content) -->
+<div id="post-bottom-widgets" class="mt-12 p-8 bg-gray-50 rounded-3xl">
+  {{ dynamic_sidebar('post-bottom-widgets') }}
+</div>
+
+<!-- 4. Footer Widget Areas (usually 4 columns) -->
+<div id="footer-widgets" class="th-container grid grid-cols-1 md:grid-cols-4 gap-12 py-16">
+  <div class="footer-col-1">{{ dynamic_sidebar('footer-1') }}</div>
+  <div class="footer-col-2">{{ dynamic_sidebar('footer-2') }}</div>
+  <div class="footer-col-3">{{ dynamic_sidebar('footer-3') }}</div>
+  <div class="footer-col-4">{{ dynamic_sidebar('footer-4') }}</div>
+</div>

@@ -1,0 +1,50 @@
+
+<!-- Post Meta Box UI (WordPress Admin Screen) -->
+<div class="postbox" id="techhub-post-settings">
+  <div class="postbox-header">
+    <h2 class="hndle">文章扩展设置 (Post Extended Settings)</h2>
+  </div>
+  <div class="inside">
+    
+    <div class="meta-row">
+      <label for="post_subtitle">文章副标题</label>
+      <input type="text" id="post_subtitle" name="th_post_subtitle" value="{{ get_post_meta($post->ID, 'th_post_subtitle', true) }}" placeholder="输入文章摘要性副标题...">
+    </div>
+
+    <div class="meta-row">
+      <label for="post_source">文章来源 (Source)</label>
+      <input type="text" id="post_source" name="th_post_source" value="{{ get_post_meta($post->ID, 'th_post_source', true) }}" placeholder="例如：Bloomberg, Reuters...">
+    </div>
+
+    <div class="meta-row flex-row">
+      <div class="meta-col">
+        <label>封面图展示样式</label>
+        <select name="th_cover_style">
+          <option value="standard">标准 (Standard)</option>
+          <option value="wide">宽屏 (Wide)</option>
+          <option value="full">全屏 (Full)</option>
+        </select>
+      </div>
+      <div class="meta-col">
+        <label>置顶权重 (Weight)</label>
+        <input type="number" name="th_sticky_weight" value="0">
+      </div>
+    </div>
+
+    <div class="meta-row">
+      <label><input type="checkbox" name="th_hide_meta" value="1"> 隐藏文章发布时间与作者</label>
+    </div>
+
+  </div>
+</div>
+
+<style>
+  #techhub-post-settings { margin-top: 20px; background: #fff; border: 1px solid #ccd0d4; }
+  .postbox-header { padding: 0 12px; border-bottom: 1px solid #ccd0d4; background: #f9f9f9; }
+  .inside { padding: 15px; }
+  .meta-row { margin-bottom: 20px; }
+  .meta-row label { display: block; font-weight: 600; margin-bottom: 8px; font-size: 13px; }
+  .meta-row input[type="text"], .meta-row input[type="number"], .meta-row select { width: 100%; padding: 8px; border: 1px solid #8c8f94; border-radius: 4px; }
+  .flex-row { display: flex; gap: 20px; }
+  .meta-col { flex: 1; }
+</style>

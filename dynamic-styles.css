@@ -1,0 +1,54 @@
+
+/**
+ * Dynamic Styles Template
+ * In WordPress, this would be wrapped in <style> tags and echoed in wp_head.
+ */
+
+:root {
+  /* Color System - Injected via PHP get_theme_mod() */
+  --theme-primary: {{ get_theme_mod('primary_color', '#0052ff') }};
+  --theme-primary-hover: {{ get_theme_mod('link_hover_color', '#0041cc') }};
+  --theme-text: {{ get_theme_mod('font_color', '#1e293b') }};
+  
+  /* Layout System */
+  --theme-container-width: {{ get_theme_mod('container_width', 1280) }}px;
+  --theme-sidebar-width: 340px;
+}
+
+body {
+  color: var(--theme-text);
+}
+
+.th-container {
+  max-width: var(--theme-container-width);
+}
+
+/* Primary Color Applications */
+.th-btn-primary, 
+.bg-blue-600,
+.th-ticker {
+  background-color: var(--theme-primary) !important;
+}
+
+.text-blue-600,
+.th-nav-link:hover,
+a:hover {
+  color: var(--theme-primary) !important;
+}
+
+.border-blue-600 {
+  border-color: var(--theme-primary) !important;
+}
+
+/* Layout logic via CSS variables */
+.th-main-layout {
+  display: grid;
+  {% if get_theme_mod('sidebar_pos') == 'left' %}
+  grid-template-columns: var(--theme-sidebar-width) 1fr;
+  {% elseif get_theme_mod('sidebar_pos') == 'none' %}
+  grid-template-columns: 1fr;
+  {% else %}
+  grid-template-columns: 1fr var(--theme-sidebar-width);
+  {% endif %}
+  gap: var(--spacing-xl);
+}

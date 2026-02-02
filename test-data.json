@@ -1,0 +1,72 @@
+
+{
+  "posts": [
+    {
+      "id": 101,
+      "title": "以太坊坎昆升级正式上线：Layer2 费率降低 90%",
+      "excerpt": "本次升级引入了 EIP-4844，通过 Blob 携带交易显著降低了数据可用性成本，利好整个 L2 生态系统...",
+      "content": "<p>以太坊网络今日成功完成了坎昆-德内伯（Dencun）硬分叉升级。这是继上海升级后最重要的技术里程碑。</p><h2>核心改进：EIP-4844</h2><p>通过引入‘数据气泡’（Blobs），以太坊现在可以处理更多的 L2 交易数据而无需永久存储在链上。这意味着 Arbitrum、Optimism 等网络的 Gas 费用将大幅下降。</p>",
+      "thumbnail": "https://picsum.photos/seed/eth-dencun/800/450",
+      "author": {
+        "id": 1,
+        "name": "TechHub 编辑部",
+        "avatar": "https://picsum.photos/seed/editor/100/100"
+      },
+      "date": "2024-03-13T10:00:00Z",
+      "categories": [
+        { "id": 2, "name": "加密货币", "slug": "crypto" },
+        { "id": 6, "name": "Web3", "slug": "web3" }
+      ],
+      "tags": ["以太坊", "坎昆升级", "Layer2", "Gas费"],
+      "views": 45200,
+      "comments_count": 128,
+      "link": "#/post/101"
+    },
+    {
+      "id": 102,
+      "title": "NVIDIA 推出 Blackwell 架构：单卡算力提升 5 倍",
+      "excerpt": "黄仁勋在 GTC 2024 现场发布了下一代 AI 芯片，称其为‘推动新一轮工业革命的引擎’...",
+      "content": "<p>NVIDIA Blackwell B200 GPU 拥有 2080 亿个晶体管，采用台积电 4NP 工艺制程。其 FP8 性能达到 20 petaflops，是 H100 的五倍之多。</p>",
+      "thumbnail": "https://picsum.photos/seed/nv-gtc/800/450",
+      "author": {
+        "id": 2,
+        "name": "AI 观察家",
+        "avatar": "https://picsum.photos/seed/ai-obs/100/100"
+      },
+      "date": "2024-03-18T14:30:00Z",
+      "categories": [
+        { "id": 4, "name": "人工智能", "slug": "ai" }
+      ],
+      "tags": ["NVIDIA", "Blackwell", "算力", "GTC"],
+      "views": 89000,
+      "comments_count": 356,
+      "link": "#/post/102"
+    }
+  ],
+  "categories": [
+    { "id": 1, "name": "全部", "slug": "all", "count": 150 },
+    { "id": 2, "name": "加密货币", "slug": "crypto", "count": 45 },
+    { "id": 3, "name": "政策法规", "slug": "policy", "count": 20 },
+    { "id": 4, "name": "人工智能", "slug": "ai", "count": 35 }
+  ],
+  "fast_news": [
+    {
+      "id": 1,
+      "title": "美联储维持利率不变，点阵图显示年内或降息三次",
+      "time": "14:15",
+      "content": "鲍威尔在新闻发布会上释放鸽派信号，市场应声大涨..."
+    },
+    {
+      "id": 2,
+      "title": "Solana 网络日活用户突破 100 万，Memecoin 热潮持续",
+      "time": "12:00",
+      "content": "得益于低廉的费用和高度活跃的生态，SOL 价格突破 200 美元..."
+    },
+    {
+      "id": 3,
+      "title": "Apple 发布 M3 Ultra 芯片计划，对标顶级工作站",
+      "time": "09:30",
+      "content": "传闻称该芯片将采用全新的封装技术，显著提升多核效率..."
+    }
+  ]
+}
